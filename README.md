@@ -14,8 +14,7 @@ Copy `CustomNumberPad.swift` and `CustomNumberPad.xib` to your project.
 		textField.inputView = UIView()
 		textField.inputAccessoryView = numberPad
 		textField.inputView = numberPad
-	}
-	</code></pre>
+	}</code></pre>
 
 
 2. Set numberPad's frame, buttons titles colors, background colors, and font in initNumberPad function. And you could customize anything in public functions of `CustomNumberPad.swift`.
@@ -27,8 +26,7 @@ Copy `CustomNumberPad.swift` and `CustomNumberPad.xib` to your project.
 		numberPad.setButtonsFont(UIFont(name: ".SFUIText-Semibold", size: 28)!)
 		numberPad.setTouchIDButtonImage(UIImage(named: "touchId")!)
 		return numberPad
-	}
-</code></pre>
+	}</code></pre>
 
 ## Screenshots
 ![image](https://github.com/michilin/MLCustomNumberPad/blob/master/screenshot.png)
