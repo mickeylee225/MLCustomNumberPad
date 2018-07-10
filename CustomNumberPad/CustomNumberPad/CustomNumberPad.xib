@@ -39,6 +39,9 @@
                         <constraint firstAttribute="height" secondItem="1Ju-Ef-PDe" secondAttribute="width" multiplier="1:1" id="Pus-RJ-EST"/>
                     </constraints>
                     <state key="normal" title="1"/>
+                    <connections>
+                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="Saz-Sc-fzP"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0o-nw-rs9">
                     <rect key="frame" x="157.66666666666666" y="0.0" width="60" height="60"/>
@@ -47,7 +50,7 @@
                     </constraints>
                     <state key="normal" title="2"/>
                     <connections>
-                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="p1U-Tm-cMc"/>
+                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="2SO-Po-3aa"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSW-7g-Izw">
@@ -56,6 +59,9 @@
                         <constraint firstAttribute="height" secondItem="aSW-7g-Izw" secondAttribute="width" multiplier="1:1" id="UTe-1a-PxH"/>
                     </constraints>
                     <state key="normal" title="3"/>
+                    <connections>
+                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="6Uk-Jk-rVz"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EQ-oM-Wz0">
                     <rect key="frame" x="157.66666666666666" y="96" width="60" height="60"/>
@@ -63,6 +69,9 @@
                         <constraint firstAttribute="height" secondItem="1EQ-oM-Wz0" secondAttribute="width" multiplier="1:1" id="Hd6-DS-qdL"/>
                     </constraints>
                     <state key="normal" title="5"/>
+                    <connections>
+                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="Cwc-4H-Bm9"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1C-Y5-lnz">
                     <rect key="frame" x="262.66666666666669" y="97" width="60" height="60"/>
@@ -70,6 +79,9 @@
                         <constraint firstAttribute="height" secondItem="N1C-Y5-lnz" secondAttribute="width" multiplier="1:1" id="L0e-PX-AJE"/>
                     </constraints>
                     <state key="normal" title="6"/>
+                    <connections>
+                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="5YL-MU-hfM"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI7-Cf-Uh0">
                     <rect key="frame" x="52.666666666666657" y="192" width="60" height="60"/>
@@ -77,6 +89,9 @@
                         <constraint firstAttribute="height" secondItem="XI7-Cf-Uh0" secondAttribute="width" multiplier="1:1" id="gtO-dX-SHh"/>
                     </constraints>
                     <state key="normal" title="7"/>
+                    <connections>
+                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="cIg-8v-mTY"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSp-Vh-mDq">
                     <rect key="frame" x="157" y="192" width="60" height="60"/>
@@ -84,6 +99,9 @@
                         <constraint firstAttribute="height" secondItem="BSp-Vh-mDq" secondAttribute="width" multiplier="1:1" id="ad8-m8-EdN"/>
                     </constraints>
                     <state key="normal" title="8"/>
+                    <connections>
+                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="Jaf-Td-aO6"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9L9-Wt-rbK">
                     <rect key="frame" x="262.66666666666669" y="192" width="60" height="60"/>
@@ -91,6 +109,9 @@
                         <constraint firstAttribute="height" secondItem="9L9-Wt-rbK" secondAttribute="width" multiplier="1:1" id="ImD-Rb-b4L"/>
                     </constraints>
                     <state key="normal" title="9"/>
+                    <connections>
+                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="MRo-IF-ucY"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h06-Wu-wOC">
                     <rect key="frame" x="157" y="288" width="60" height="60"/>
@@ -98,6 +119,9 @@
                         <constraint firstAttribute="height" secondItem="h06-Wu-wOC" secondAttribute="width" multiplier="1:1" id="vKD-ln-BNI"/>
                     </constraints>
                     <state key="normal" title="0"/>
+                    <connections>
+                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="Ebx-DL-fg5"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Uv-zY-Zoq">
                     <rect key="frame" x="262.66666666666669" y="288" width="60" height="60"/>
@@ -115,6 +139,9 @@
                         <constraint firstAttribute="height" secondItem="yQn-Ig-kAd" secondAttribute="width" multiplier="1:1" id="SKB-al-jG0"/>
                     </constraints>
                     <state key="normal" title="4"/>
+                    <connections>
+                        <action selector="numberButtonsClicked:" destination="-1" eventType="touchUpInside" id="lIa-hm-q13"/>
+                    </connections>
                 </button>
                 <button opaque="NO" tag="998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afV-Ue-Te9">
                     <rect key="frame" x="52.666666666666657" y="288" width="60" height="60"/>

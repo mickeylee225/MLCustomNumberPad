@@ -7,7 +7,10 @@ Copy `CustomNumberPad.swift` and `CustomNumberPad.xib` to your project.
 
 ## Usage
 
-1. Initialize numberPad, set textField inputView to an empty view to avoid gray background, set numberPad as textField inputAccessoryView and set its delegate to the ViewController.
+1. Initialize numberPad.
+2. Set textField inputView to an empty view to avoid gray background.
+3. Set numberPad as textField inputAccessoryView
+4. If you have touch ID button action, set numberPad delegate to the ViewController.
 	<pre><code>override func viewDidLoad() {
 		let numberPad = ViewController.initNumberPad()
 		numberPad.delegate = self
@@ -17,7 +20,7 @@ Copy `CustomNumberPad.swift` and `CustomNumberPad.xib` to your project.
 	}</code></pre>
 
 
-2. Set numberPad's frame, buttons titles colors, background colors, and font in initNumberPad function. And you could customize anything in public functions of `CustomNumberPad.swift`.
+5. Customize numberPad's frame, buttons titles colors, background colors, and font in initNumberPad function. And you could customize anything in public functions of `CustomNumberPad.swift`.
 	<pre><code>func initNumberPad() -> CustomNumberPad {
 		let numberPad = CustomNumberPad(frame: CGRect(x: 0, y: 150, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 150))
 		numberPad.setViewBgColor(.clear)

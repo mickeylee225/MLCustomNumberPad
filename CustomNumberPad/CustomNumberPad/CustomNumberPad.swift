@@ -9,8 +9,6 @@
 import UIKit
 
 public protocol CustomNumberPadDelegate {
-    func numberButtonClicked(numberPad: CustomNumberPad, number: Int)
-    func deleteButtonClicked(numberPad: CustomNumberPad)
     func touchIDButtonClicked(numberPad: CustomNumberPad)
 }
 
@@ -36,15 +34,20 @@ public class CustomNumberPad: UIView {
     override public init(frame: CGRect) {
         super.init(frame: frame)
         setupViewFromXib()
+        addObserver()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupViewFromXib()
+        addObserver()
     }
     
     deinit {
         delegate = nil
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UITextFieldTextDidEndEditing, object: nil)
+        textInput = nil
     }
     
     private func setupViewFromXib() {
@@ -69,7 +72,12 @@ public class CustomNumberPad: UIView {
         return CGRect(x: 0, y: 0, width: CustomNumberPad.viewWidth, height: CustomNumberPad.viewHeight)
     }
     
-    // MARK: - Public Methods
+    private func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(editingDidBegin), name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(editingDidEnd), name: NSNotification.Name.UITextFieldTextDidEndEditing, object: nil)
+    }
+    
+    // MARK: - Public Methods - Buttons Attributes
     
     public func setViewBgColor(_ color: UIColor) {
         containerView.backgroundColor = color
@@ -145,16 +153,78 @@ public class CustomNumberPad: UIView {
     // MARK: - Buttons Actions
     
     @IBAction func numberButtonsClicked(_ sendor: UIButton) {
-        let number = Int((sendor.titleLabel?.text)!)
-        delegate?.numberButtonClicked(numberPad: self, number: number!)
+        if self.textInput == nil {
+            return
+        }
+        
+        let number = sendor.titleLabel?.text
+        if let selectedTextRange = self.textInput?.selectedTextRange {
+            self.textInput(self.textInput, replaceTextAt: selectedTextRange, with: number)
+        }
     }
     
     @IBAction func deleteButtonClicked(_ sendor: UIButton) {
-        delegate?.deleteButtonClicked(numberPad: self)
+        if self.textInput == nil {
+            return
+        }
+        
+        if let selectedRange = self.textInput?.selectedTextRange {
+            let startPosition = self.textInput?.position(from: selectedRange.start, offset: -1)
+            if let startPosition = startPosition {
+                let endPosition = selectedRange.end
+                let rangeToDelete = self.textInput?.textRange(from: startPosition, to: endPosition)
+                self.textInput(self.textInput, replaceTextAt: rangeToDelete, with: "")
+            }
+        }
     }
     
     @IBAction func touchIDButtonClicked(_ sendor: UIButton) {
         delegate?.touchIDButtonClicked(numberPad: self)
+    }
+    
+    // MARK: - TextInput
+    
+    @objc private func editingDidBegin(notification: Notification) {
+        if notification.object is UIResponder {
+            if notification.object is UITextInput {
+                textInput = notification.object as? (UIResponder & UITextInput)
+                return
+            }
+        }
+        textInput = nil
+    }
+    
+    @objc private func editingDidEnd(notification: Notification) {
+        textInput = nil
+    }
+    
+    private func textInput(_ textInput: UITextInput?, replaceTextAt textRange: UITextRange?, with string: String?) {
+        if textInput == nil && textRange == nil {
+            return
+        }
+        
+        let startPosition = textInput?.offset(from: (textInput?.beginningOfDocument)!, to: (textRange?.start)!)
+        let length = textInput?.offset(from: (textRange?.start)!, to: (textRange?.end)!)
+        let selectedRange = NSRange(location: startPosition ?? 0, length: length ?? 0)
+        
+        if self.textInput(textInput, shouldChangeCharactersIn: selectedRange, with: string ?? "") {
+            if let textRange = textRange {
+                textInput?.replace(textRange, withText: string ?? "")
+            }
+        }
+    }
+    
+    private func textInput(_ textInput: UITextInput?, shouldChangeCharactersIn range: NSRange?, with string:String) -> Bool {
+        let textField = textInput as? UITextField
+        if let textField = textField {
+            if textField.delegate?.textField?(textField, shouldChangeCharactersIn: range!, replacementString: string) ?? false {
+                return true
+            } else {
+                // Delegate does not respond, so default to YES
+                return true
+            }
+        }
+        return false
     }
     
 }

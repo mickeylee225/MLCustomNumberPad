@@ -39,14 +39,6 @@ class ViewController: UIViewController, CustomNumberPadDelegate {
     
     // MARK: - CustomNumberPadDelegate
     
-    func numberButtonClicked(numberPad: CustomNumberPad, number: Int) {
-        print("number \(number) clicked")
-    }
-    
-    func deleteButtonClicked(numberPad: CustomNumberPad) {
-        
-    }
-    
     func touchIDButtonClicked(numberPad: CustomNumberPad) {
         
     }
