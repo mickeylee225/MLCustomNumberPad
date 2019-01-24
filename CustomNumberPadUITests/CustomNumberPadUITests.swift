@@ -28,9 +28,40 @@ class CustomNumberPadUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testButtons() {
+        
+        let app = XCUIApplication()
+        let window = app.children(matching: .window).element(boundBy: 0)
+        window.otherElements.children(matching: .textField).element.tap()
+        
+        let button = app.buttons["1"]
+        button.tap()
+        app.buttons["2"].tap()
+        app.buttons["3"].tap()
+        app.buttons["4"].tap()
+        app.buttons["5"].tap()
+        app.buttons["6"].tap()
+        app.buttons["7"].tap()
+        app.buttons["8"].tap()
+        app.buttons["9"].tap()
+        app.buttons["0"].tap()
+        
+        let cButton = app.buttons["C"]
+        cButton.tap()
+        cButton.tap()
+        cButton.tap()
+        cButton.tap()
+        cButton.tap()
+        cButton.tap()
+        cButton.tap()
+        cButton.tap()
+        cButton.tap()
+        cButton.tap()
+        cButton.tap()
+        button.tap()
+        app.children(matching: .window).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element(boundBy: 9).tap()
+        window.children(matching: .other).element.tap()
+        
     }
     
 }

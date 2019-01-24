@@ -21,10 +21,10 @@ public class CustomNumberPad: UIView {
     
     private weak var textInput: (UIResponder & UITextInput)?
     
-    @IBOutlet var containerView: UIView!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet var numberButtons: [UIButton]!
-    @IBOutlet var deleteButton: UIButton!
-    @IBOutlet var touchIDButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var touchIDButton: UIButton!
 
     public var delegate: CustomNumberPadDelegate?
     
@@ -52,7 +52,8 @@ public class CustomNumberPad: UIView {
     
     private func setupViewFromXib() {
         let nib = UINib(nibName: CustomNumberPad.nibName, bundle: bundle()).instantiate(withOwner: self, options: nil)
-        let view = nib.first as! UIView
+        guard let view = nib.first as? UIView else { return }
+        
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)

@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, CustomNumberPadDelegate {
     
-    @IBOutlet var textField: UITextField!
+    @IBOutlet weak var textField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
